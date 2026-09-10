@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerAI Copilot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        CareerAI <span>Copilot</span>
+    </div>
+
+    <p>Personalized AI Career & Job Readiness Assistant</p>
+
+</header>
+
+
+<main>
+
+    <!-- PROFILE -->
+
+    <section class="card">
+
+        <h2>👤 Student Profile</h2>
+
+        <label>Resume / Skills</label>
+
+        <textarea
+            id="resume"
+            placeholder="Paste your resume content here...
+
+Example:
+Python developer with Machine Learning experience.
+Projects using NumPy, Pandas and SQL.
+GitHub projects in AI."
+        ></textarea>
+
+
+        <label>GitHub Projects / Skills</label>
+
+        <textarea
+            id="github"
+            placeholder="Describe your GitHub projects or technologies..."
+        ></textarea>
+
+
+        <label>Career Goal</label>
+
+        <select id="career">
+
+            <option value="">
+                Let AI recommend a career
+            </option>
+
+            <option value="AI / ML Engineer">
+                AI / ML Engineer
+            </option>
+
+            <option value="Software Developer">
+                Software Developer
+            </option>
+
+            <option value="Cybersecurity Analyst">
+                Cybersecurity Analyst
+            </option>
+
+        </select>
+
+
+        <button onclick="analyzeProfile()">
+            🚀 Analyze My Career
+        </button>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboard" class="hidden">
+
+        <div class="dashboard-grid">
+
+
+            <div class="stat-card">
+
+                <h3>🎯 Career Match</h3>
+
+                <div id="careerScore"
+                     class="big-number">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>📊 Job Readiness</h3>
+
+                <div id="readinessScore"
+                     class="big-number">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>💻 Skills Found</h3>
+
+                <div id="skillCount"
+                     class="big-number">
+                    0
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- CAREER -->
+
+        <div class="card">
+
+            <h2>🎯 Recommended Career</h2>
+
+            <h1 id="careerName">
+                -
+            </h1>
+
+            <p>
+                Based on your current skills and profile.
+            </p>
+
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="two-column">
+
+            <div class="card">
+
+                <h2>✅ Your Skills</h2>
+
+                <div id="skills"
+                     class="tags">
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>⚠️ Skill Gaps</h2>
+
+                <div id="missing"
+                     class="tags warning">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ROADMAP -->
+
+        <div class="card">
+
+            <h2>🗺️ Personalized Learning Roadmap</h2>
+
+            <ol id="roadmap"
+                class="roadmap">
+            </ol>
+
+        </div>
+
+
+        <!-- INTERVIEW -->
+
+        <div class="card">
+
+            <h2>🎤 AI Mock Interview</h2>
+
+            <button onclick="startInterview()">
+                Start Mock Interview
+            </button>
+
+            <div id="interviewBox"
+                 class="interview-box hidden">
+
+                <h3 id="question"></h3>
+
+                <textarea
+                    id="answer"
+                    placeholder="Type your answer..."
+                ></textarea>
+
+                <button onclick="submitAnswer()">
+                    Submit Answer
+                </button>
+
+                <div id="feedback"
+                     class="feedback">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        CareerForge AI | Pragati Engineering College
+    </p>
+
+    <p>
+        SkillUp Hackathon × IBM SkillsBuild
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
